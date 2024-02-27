@@ -1,0 +1,26 @@
+---
+import NavBar from '../components/NavBar.astro';
+const { contacto } = Astro.props
+---
+
+<div id="contacto">
+    <h1>Contactanos</h1>
+    <p> Si quieres que conozcamos tu cafeteria o queires recomendarnos algun local, nos puedes encontrar en nuestas redes sociales o mandarnos un correo a <a href=`mailto:${contacto.mail}`>{contacto.mail}</a> electrónico para contactarnos.</p>
+</div>
+<NavBar/>
+<style>
+    div{
+        color: #AD7D52;
+        font-size: 20px;
+        margin: 100px 0px;
+        text-align: center;
+    }
+    h1{
+		color: #725337;
+    }
+    a{
+        text-decoration: none;
+        color: #a04c1e;
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,74 @@
+---
+const { cafeterias } = Astro.props;
+---
+
+<div class="container">
+  {
+    cafeterias.map((cafeteria) => (
+      <div class="card">
+        <img src={cafeteria.img} alt="" />
+        <div class="text">
+          <h3>{cafeteria.name}</h3>
+          <p>{cafeteria.description}</p>
+          <div class="second-text">
+            <span>{cafeteria.direction}</span>
+            <a href={`/cafeterias/${cafeteria.id}`}>+ info</a>
+            </div>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .card {
+    width: 29%;
+  }
+  .text {
+    color: #ad7d52;
+    width: 100%;
+    text-align: justify;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    height: 190px;
+  }
+  span {
+    font-size: 13px;
+  }
+  h3 {
+    margin: 1px;
+  }
+  .second-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a {
+    border: 1px solid #ad7d52;
+    border-radius: 12px;
+    text-decoration: none;
+    padding: 4px 8px;
+    color: black;
+  }
+  @media screen and (max-width: 480px) {
+        .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 100%;
+    }
+}
+</style>

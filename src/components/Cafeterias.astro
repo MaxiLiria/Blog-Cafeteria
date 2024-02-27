@@ -1,0 +1,19 @@
+---
+import Box from '../components/Box.astro'
+import {cafeterias} from '../data.js';
+---
+<div class="cafeterias">
+    <h1 id="cafeterias">Cafeterias</h1>
+	
+    <Box cafeterias={cafeterias}/>
+</div>
+<style> 
+    .cafeterias{
+		margin-top: 80px;
+	}
+	.cafeterias h1{
+		text-align: center;
+		color: #725337;
+	}
+	
+</style>

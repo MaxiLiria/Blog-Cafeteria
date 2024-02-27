@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Contacto from '../components/Contacto.astro';
+import Header from '../components/Header.astro';
+import About from '../components/About.astro';
+import ImageNav from '../components/Image-Nav.astro';
+import Cafeterias from '../components/Cafeterias.astro';
+ import {contacto} from '../data.js';
+---
+
+<Layout title="La mejor cafeteria de Barcelona" description="Encontraras las mejores cafeterias en Barcelona, con una gran variedad de opciones para todos los gustos">
+	<ImageNav/>
+	<main>
+		<Header />
+		<About />
+		<Cafeterias />
+		<Contacto contacto={contacto}/>
+	</main>
+</Layout>
+
+<style>
+	body{
+		padding: 0px;
+		margin: 0;
+		background-color: rgb(247, 247, 247);
+	}
+	main{
+		width: 75%;
+		margin: auto;
+	}
+</style>
