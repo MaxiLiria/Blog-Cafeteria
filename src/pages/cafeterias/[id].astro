@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ImageNav from "../../components/Image-Nav.astro";
-
+import { string } from "astro/zod";
 
 export async function getStaticPaths() {
   const cafeterias = [
@@ -9,6 +9,7 @@ export async function getStaticPaths() {
       id: 1,
       name: "Cafeteria 1",
       img: "https://cadenaser.com/resizer/JW__t6KwyILg1IoUmwFvF9RW9UI=/1200x900/filters:format(jpg):quality(70)/cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/SPEJDYMPEJP3FKH4PDF4RCKEAI.jpg",
+      
       description:
         "Este cafe es de especialidad, su sabor es único y su precio es asequible. Su grano viene de Colombia, tiene unos colores muy suaves.",
       direction: "Marina 293, Sagrada Familia, Barcelona",
@@ -65,20 +66,37 @@ const { name, img, description, direction } = Astro.props;
 ---
 
 <Layout>
-  <ImageNav/>
-  <head>
-    <title>{name}</title>
-  </head>
-  <body>
-    <img src={img} alt="" />
-    <p>{description}</p>
-    <p>{direction}</p>
-  </body>
+  <ImageNav />
+  <main>
+    <head>
+      <title>{name}</title>
+    </head>
+    <body>
+      <div class="card">
+        <h1>{name}</h1>
+        <div class="imagenes">
+             <img src={img} alt="imagen cafeteria"/>
+        </div>
+        <p>{description}</p>
+        <p>{direction}</p>
+      </div>
+    </body>
+  </main>
 </Layout>
-
-
-
-
-
-
-
+<style>
+  body {
+    padding: 0%;
+    margin: 0%;
+  }
+  .card {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    width: 400px;
+  }
+</style>
